@@ -21,6 +21,9 @@ class DetailView extends GetView<DetailController> {
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
       ),
       body: SafeArea(
         child: Stack(

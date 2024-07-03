@@ -4,7 +4,7 @@ import 'package:androtell/app/routes/app_routes.dart';
 import 'package:get/get.dart';
 
 class CallController extends GetxController {
-  var remainingTime = 600.obs; // 10 minutes in seconds
+  var remainingTime = 600.obs;
   var progress = 1.0.obs;
   Timer? timer;
 
@@ -18,7 +18,7 @@ class CallController extends GetxController {
     timer = Timer.periodic(Duration(seconds: 1), (timer) {
       if (remainingTime.value > 0) {
         remainingTime.value--;
-        progress.value = remainingTime.value / 600; // Update progress
+        progress.value = remainingTime.value / 600;
       } else {
         timer.cancel();
       }
@@ -33,10 +33,10 @@ class CallController extends GetxController {
 
   void endCall() {
     timer?.cancel();
-    remainingTime.value = 600; // Reset to 10 minutes
-    progress.value = 1.0; // Reset progress to full
-    startTimer(); // Restart the timer
-    Get.toNamed(Routes.INPUT);//navigate to input page
+    remainingTime.value = 600;
+    progress.value = 1.0;
+    startTimer();
+    Get.toNamed(Routes.INPUT);
   }
 
   @override

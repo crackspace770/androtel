@@ -1,6 +1,5 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import '../controllers/scan_controller.dart';
@@ -18,9 +17,17 @@ class ScanView extends GetView<ScanController> {
         ),
         centerTitle: true,
         backgroundColor: Colors.green,
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
       ),
       body: Stack(
         children: [
+          Container(
+            color: Colors.green,
+            height: 30,
+          ),
+
           // Camera preview
           Obx(() {
             if (!controller.isCameraInitialized.value) {
@@ -32,7 +39,8 @@ class ScanView extends GetView<ScanController> {
                   topRight: Radius.circular(30),
                 ),
                 child: Container(
-                  height: MediaQuery.of(context).size.height,
+                  width: double.infinity,
+                  height: double.infinity,
                   child: CameraPreview(controller.cameraController.value!),
                 ),
               );
@@ -74,18 +82,18 @@ class ScanView extends GetView<ScanController> {
                   ),
                 ),
                 const SizedBox(height: 100),
-                // Scan button
-                ElevatedButton(
-                  onPressed: () {
-                    controller.navigateToDetail();
+
+                GestureDetector(
+                  onTap: () {
+                    controller.navigateToDetail(); // Navigate on button tap
                   },
-                  style: ElevatedButton.styleFrom(
-                    shape: const CircleBorder(),
-                    padding: const EdgeInsets.all(20),
-                    backgroundColor: Colors.green,
+                  child: Image.asset(
+                    "assets/button_capture.png",
+                    height: 200,
+                    width: 200,
                   ),
-                  child: const Icon(Icons.camera_alt, size: 40),
                 ),
+
               ],
             ),
           ),

@@ -13,7 +13,7 @@ class SplashController extends GetxController {
   void changeTheme() => isDark.value = !isDark.value;
 
   void navigateToHome() async {
-    await Future.delayed(Duration(seconds: 3)); // Simulate some initialization delay
+    await Future.delayed(const Duration(seconds: 3));
     Get.offAllNamed(Routes.HOME);
   }
 }

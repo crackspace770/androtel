@@ -32,6 +32,7 @@ flutter:
     - assets/logo_beranda.png
     - assets/barcode.png
     - assets/button_scan.png
+    - assets/button_capture.png
     - lib/icon/
   uses-material-design: true
 

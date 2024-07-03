@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
@@ -18,7 +18,7 @@ class HomeView extends GetView<HomeController> {
               children: [
                 Container(
                   height: 350,
-                  width: 400,
+                  width: 415,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/bg_beranda.png"),
@@ -26,13 +26,13 @@ class HomeView extends GetView<HomeController> {
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 100.0),
+                    padding: const EdgeInsets.only(bottom: 150.0),
                     child: Align(
                       alignment: Alignment.bottomCenter,
                       child: Image.asset(
                         "assets/logo_beranda.png",
-                        height: 70,
-                        width: 70,
+                        height: 200,
+                        width: 200,
                       ),
                     ),
                   ),

@@ -15,47 +15,62 @@ class CallView extends GetView<CallController> {
         title: const Text('Timer'),
         centerTitle: true,
         backgroundColor: Colors.green,
-      ),
-      body: Center(
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(16),
-              topRight: Radius.circular(16),
-            ),
-          ),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Obx(() {
-                  return CircularPercentIndicator(
-                    radius: 120.0,
-                    lineWidth: 13.0,
-                    animation: true,
-                    animateFromLastPercent: true,
-                    percent: controller.progress.value,
-                    center: Text(
-                      controller.formatTime(controller.remainingTime.value),
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                    ),
-                    circularStrokeCap: CircularStrokeCap.round,
-                    progressColor: Colors.green,
-                  );
-                }),
-                SizedBox(height: 50),
-                FloatingActionButton(
-                  onPressed: () {
-                    controller.endCall();
-                  },
-                  backgroundColor: Colors.red,
-                  child: Icon(Icons.call_end),
-                ),
-              ],
-            ),
-          ),
+        iconTheme: const IconThemeData(
+          color: Colors.white,
         ),
+      ),
+      body: Stack(
+        children: [
+          Container(
+            color: Colors.green,
+          ),
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(16),
+                  topRight: Radius.circular(16),
+                ),
+              ),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Obx(() {
+                      return CircularPercentIndicator(
+                        radius: 120.0,
+                        lineWidth: 13.0,
+                        animation: true,
+                        animateFromLastPercent: true,
+                        percent: controller.progress.value,
+                        center: Text(
+                          controller.formatTime(controller.remainingTime.value),
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                        ),
+                        circularStrokeCap: CircularStrokeCap.round,
+                        progressColor: Colors.green,
+                      );
+                    }),
+                    SizedBox(height: 50),
+                    FloatingActionButton(
+                      onPressed: () {
+                        controller.endCall();
+                      },
+                      backgroundColor: Colors.red,
+                      child: Icon(Icons.call_end),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+
       ),
     );
   }
